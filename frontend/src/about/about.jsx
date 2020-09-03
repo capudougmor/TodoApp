@@ -1,9 +1,13 @@
 import React from 'react'
+import PageHeader from '../template/pageHeader'
+import Menu from '../template/menu'
+
 
 export default props => {
   return (
     <div>
-      <h1>Sobre</h1>
+      <Menu />
+      <PageHeader name='Sobre' small='Nós' />
     </div>
   )
 }

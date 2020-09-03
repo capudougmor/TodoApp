@@ -1,16 +1,11 @@
 import React from 'react';
-import { Alert } from 'reactstrap';
-import Todo from '../todo/todo'
-import About from '../about/about'
-import Menu from '../template/menu'
+import Router from './routes'
 
 
 function App() {
   return (
     <div className="App">
-      <Menu />
-      <Todo />
-      <About />
+      <Router />
     </div>
   );
 }
