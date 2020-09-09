@@ -28,7 +28,7 @@ export const HomeIcon = styled(FaCalendarCheck)`
   margin-right: 10px; 
 `
 
-export const NavLink = styled.a`
+export const NavLink = styled.span`
   color: #ddd;
   margin-right: 20px;
   cursor: pointer;

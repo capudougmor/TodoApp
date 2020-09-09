@@ -9,9 +9,11 @@ export const Form = styled.div`
   height: 30px;
   margin: 20px 0;
   width: 100%;
+  display: flex;
+  align-items: center;
 
   > input {
-    width: 70%;
+    flex: 1;
     height: 30px;
     padding:16px;
     border: none;

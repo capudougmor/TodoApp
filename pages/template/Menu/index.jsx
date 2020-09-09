@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { Container, Navbar, NavbarBrand, NavLink, HomeIcon } from './styles'
 
 export default function Menu(props) {
-
+ 
   return (
     <Container>
       <Navbar>

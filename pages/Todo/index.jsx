@@ -1,4 +1,5 @@
-import React, { useState, Component } from 'react';
+import React, { useState, Component } from 'react'
+import api from '../api'
 
 import { Container, } from './styles'
 
@@ -6,6 +7,8 @@ import PageHeader from '../template/PageHeader';
 import Layout from '../template/Layout';
 import TodoForm from '../template/TodoForm';
 import TodoLIst from '../template/TodoList';
+
+const URL = 'http://localhost:3003/api/todos'
 
 export default class Todo extends Component {
 
@@ -21,7 +24,9 @@ export default class Todo extends Component {
   }
 
   handleAdd() {
-    console.log(this.state.description)
+    const description = this.state.description
+    api.post('todos', { description })
+      .then(resp => console.log('funcionou'))
   }
 
   render() {
