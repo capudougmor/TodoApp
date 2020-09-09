@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { Container, Form, ButtonSoma, ButtonIcon } from './styles'
+import SquadButton from '../SquadButton'
 
 
 export default function TodoForm(props) {
@@ -10,10 +11,10 @@ export default function TodoForm(props) {
       <Form>
         <input
           placeholder='Adicione uma tarefa'
+          onChange={props.handleChange}
+          value={props.description}
         />
-        <ButtonSoma>
-          <ButtonIcon />
-        </ButtonSoma>
+        <SquadButton onClick={props.handleAdd} />
       </Form>
     </Container>
   )

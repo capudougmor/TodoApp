@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 
 import { Container, } from './styles'
 
@@ -7,29 +7,38 @@ import Layout from '../template/Layout';
 import TodoForm from '../template/TodoForm';
 import TodoLIst from '../template/TodoList';
 
+export default class Todo extends Component {
 
-function Todo() {
+  constructor(props) {
+    super(props)
+    this.state = { description: '', list: []}
 
-  const [description, setDescription] = useState('')
-
-  function handleChange(e) {
-    setDescription(e.target.value)
+    this.handleChange = this.handleChange.bind(this)
+    this.handleAdd = this.handleAdd.bind(this)
+  }
+  handleChange(e) {
+    this.setState({...this.state, description: e.target.value})
   }
 
-  function handleAdd() {
-    console.log('add');
+  handleAdd() {
+    console.log(this.state.description)
   }
 
-  return (
-    <Layout>
-      <Container>
-        <PageHeader name='Tarefas' small='Cadastro' />
-        <TodoForm />
-        <TodoLIst />
-      </Container>
-    </Layout>
-
-  );
+  render() {
+    return (
+      <Layout>
+        <Container>
+          <PageHeader name='Tarefas' small='Cadastro' />
+          <TodoForm 
+            description={this.state.description}
+            handleChange={this.handleChange}
+            handleAdd={this.handleAdd}
+          />
+          <TodoLIst />
+        </Container>
+      </Layout>
+  
+    );
+  }
+  
 }
-
-export default Todo;
