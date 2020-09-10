@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { FaPlus } from 'react-icons/fa'
+
 
 import { Container, Form, ButtonSoma, ButtonIcon } from './styles'
 import SquadButton from '../SquadButton'
@@ -14,7 +16,9 @@ export default function TodoForm(props) {
           onChange={props.handleChange}
           value={props.description}
         />
-        <SquadButton onClick={props.handleAdd} />
+        <SquadButton onClick={props.handleAdd}>
+          asdfas 
+        </SquadButton>
       </Form>
     </Container>
   )

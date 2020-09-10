@@ -11,7 +11,6 @@ export const ButtonItem = styled.button`
   border-radius:6px;
 
   cursor: pointer;
-  
 
   &:hover{
     opacity: 0.9;

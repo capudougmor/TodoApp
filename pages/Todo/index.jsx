@@ -18,7 +18,15 @@ export default class Todo extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
+
+    this.refresh()
   }
+
+  refresh() {
+    api.get('todos?sort=-createdAt')
+      .then((resp) => this.setState({...this.state, description: '', list: resp.data}));
+  }
+
   handleChange(e) {
     this.setState({...this.state, description: e.target.value})
   }
@@ -26,7 +34,7 @@ export default class Todo extends Component {
   handleAdd() {
     const description = this.state.description
     api.post('todos', { description })
-      .then(resp => console.log('funcionou'))
+      .then(resp => this.refresh())
   }
 
   render() {
@@ -39,7 +47,7 @@ export default class Todo extends Component {
             handleChange={this.handleChange}
             handleAdd={this.handleAdd}
           />
-          <TodoLIst />
+          <TodoLIst list={this.state.list} />
         </Container>
       </Layout>
   
