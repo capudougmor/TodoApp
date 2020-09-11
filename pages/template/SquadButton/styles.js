@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { FaMinus } from 'react-icons/fa'
+import styled, { css } from 'styled-components'
+import { FaTrash } from 'react-icons/fa'
 import { FaPlus } from 'react-icons/fa'
 
 export const ButtonItem = styled.button`
@@ -9,8 +9,12 @@ export const ButtonItem = styled.button`
   background-color: #254;
   border: none;
   border-radius:6px;
-
   cursor: pointer;
+
+  ${props => props.icon === 'trash' && css`
+    background-color: #dd1e00;  
+    `
+  }
 
   &:hover{
     opacity: 0.9;
@@ -18,7 +22,7 @@ export const ButtonItem = styled.button`
 
 `
 
-export const MinusIcon = styled(FaMinus)`
+export const MinusIcon = styled(FaTrash)`
   width: 24px;
   color: white;
 

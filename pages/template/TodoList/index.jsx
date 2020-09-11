@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import SquadButton from '../SquadButton'
 
-import { FaPlus } from 'react-icons/fa'
-
+import { Menu, Table } from './styles'
 
 export default function TodoLIst(props) {
 
@@ -12,26 +11,25 @@ export default function TodoLIst(props) {
       <tr key={todo._id}>
         <td>{ todo.description }</td>
         <td>
-          <SquadButton>
-            <span>
-              <FaPlus size={20} color="#a8a8b3"/>
-            </span>              
-          </SquadButton>
+          <SquadButton 
+            icon='trash' 
+            onClick={() => props.handleRemove(todo)}
+          />
         </td>
       </tr>
     ))
   }
   return (
-    <table>
+    <Table>
       <thead>
-        <tr>
+        <Menu>
           <th>Descrição</th>
           <th>Ações</th>
-        </tr>
+        </Menu>
       </thead>
       <tbody>
         {renderRows()}
       </tbody>
-    </table>
+    </Table>
   )
 }

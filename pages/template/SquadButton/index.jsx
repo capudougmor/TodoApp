@@ -9,8 +9,12 @@ export default function SquadButton(props) {
     <If test={!props.hide}>
       <ButtonItem
         onClick={props.onClick}
-      >        
-        <PlusIcon />
+        icon={props.icon}
+      >   
+        {props.icon === 'trash' &&      
+          <MinusIcon />
+          || <PlusIcon />         
+        }
       </ButtonItem>
     </If>
   )

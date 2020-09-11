@@ -18,6 +18,7 @@ export default class Todo extends Component {
 
     this.handleChange = this.handleChange.bind(this)
     this.handleAdd = this.handleAdd.bind(this)
+    this.handleRemove = this.handleRemove.bind(this)
 
     this.refresh()
   }
@@ -37,6 +38,11 @@ export default class Todo extends Component {
       .then(resp => this.refresh())
   }
 
+  handleRemove(todo) {
+    api.delete(`todos/${todo._id}`)
+      .then(resp => this.refresh())
+  }
+
   render() {
     return (
       <Layout>
@@ -46,8 +52,12 @@ export default class Todo extends Component {
             description={this.state.description}
             handleChange={this.handleChange}
             handleAdd={this.handleAdd}
+            />
+          <TodoLIst
+            list={this.state.list} 
+            handleRemove={this.handleRemove}          
+          
           />
-          <TodoLIst list={this.state.list} />
         </Container>
       </Layout>
   

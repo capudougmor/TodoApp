@@ -16,9 +16,7 @@ export default function TodoForm(props) {
           onChange={props.handleChange}
           value={props.description}
         />
-        <SquadButton onClick={props.handleAdd}>
-          asdfas 
-        </SquadButton>
+        <SquadButton onClick={props.handleAdd} icon='plus'/>
       </Form>
     </Container>
   )
