@@ -1,22 +1,37 @@
 import React, { useState } from 'react'
 import SquadButton from '../SquadButton'
 
-import { Menu, Table } from './styles'
+import { Description, Menu, Table } from './styles'
 
 export default function TodoLIst(props) {
 
   const renderRows = () => {
     const list = props.list || []
     return list.map(todo => (
-      <tr key={todo._id}>
-        <td>{ todo.description }</td>
-        <td>
-          <SquadButton 
-            icon='trash' 
-            onClick={() => props.handleRemove(todo)}
-          />
-        </td>
-      </tr>
+      <div key={todo._id}>
+        <tr >
+          {!todo.done && <Description >{todo.description}</Description>}
+          {todo.done && <Description markAsDone='markAsDone' >{todo.description}</Description>}
+          <td>
+            <SquadButton
+              icon='check'
+              hide={todo.done}
+              onClick={() => props.handleMarkAsDone(todo)}
+              />
+            <SquadButton
+              icon='undo'
+              hide={!todo.done}
+              onClick={() => props.handleMarkAsPending(todo)}
+              />
+            <SquadButton
+              icon='trash'
+              hide={!todo.done}
+              onClick={() => props.handleRemove(todo)}
+            />
+          </td>
+        </tr>
+        <hr />
+      </div>
     ))
   }
   return (
@@ -26,6 +41,7 @@ export default function TodoLIst(props) {
           <th>Descrição</th>
           <th>Ações</th>
         </Menu>
+        {/* <hr /> */}
       </thead>
       <tbody>
         {renderRows()}

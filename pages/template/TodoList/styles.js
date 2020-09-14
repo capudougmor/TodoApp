@@ -1,6 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
  
-export const Table = styled.div`
+export const Description = styled.td`
+  ${props => props.markAsDone == 'markAsDone' && css`
+    text-decoration: line-through;
+    color: #666;
+    `
+  }
+`
+
+export const Table = styled.table`
   display: flex;
   flex-direction: column;
 
@@ -9,7 +17,15 @@ export const Table = styled.div`
   flex: 1;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
   }
+
+  & hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #CCC, transparent);  
+  margin-bottom: 10px;
+}
 
 `
 
@@ -21,7 +37,6 @@ export const Menu = styled.tr`
   justify-content: space-between;
 
 `
-
 
 export const Form = styled.div`
   height: 30px;
